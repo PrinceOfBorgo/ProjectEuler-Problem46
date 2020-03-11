@@ -2,17 +2,17 @@
 ## Text
 > It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime and twice a square.
 >
-> `9 = 7 + 2×1²`
+> 9 = 7 + 2×1²
 >
-> `15 = 7 + 2×2²`
+> 15 = 7 + 2×2²
 >
-> `21 = 3 + 2×3²`
+> 21 = 3 + 2×3²
 >
-> `25 = 7 + 2×3²`
+> 25 = 7 + 2×3²
 >
-> `27 = 19 + 2×2²`
+> 27 = 19 + 2×2²
 >
-> `33 = 31 + 2×1²`
+> 33 = 31 + 2×1²
 > 
 > It turns out that the conjecture was false.
 >
@@ -46,8 +46,17 @@ At this point we fix `n` and start searching a counterexample for the conjecture
   * If `sqrt(n - 1)` is an integer, this means that `n - 1 = k^2` so we can conclude that `o = 3 + 2*k^2` for some `k`. Then we pass to the next `n`.
   * Otherwise `o ≠ 3 + 2*k^2` for any `k` and so we must see if other primes `p` lead to confirm the conjecture.
 2. If the case `p = 3` fails, we start looping through all possible `m` values (from 1 to `(n + 1)/3`), we now must check if `n - 3*m` or `n - 3*m + 1` are square. Let `x = n - 3*m`, we have 3 cases:
-  * If `x` is nonnegative and `sqrt(x)` is an integer, this means that `n - 3*m = k²`, then this was the case where `p = 6*m + 1`. If `p` is prime then we have a case that confirms the conjecture so we must pass to the next `n`, otherwise we must look for other possibile value of `p` incrementing `m`.
+  * If `x` is nonnegative and `sqrt(x)` is an integer, this means that `n - 3*m = k^2`, then this is the case where `p = 6*m + 1`. If `p` is prime then we have a case that confirms the conjecture so we must pass to the next `n`, otherwise we must look for other possibile value of `p` incrementing `m`.
   * Similarly to the previous case, when `sqrt(x + 1)` we get `p = 6*m - 1` that, as above, can be prime or nonprime.
   * When neither `sqrt(x)` nor `sqrt(x + 1)` are squares we must check the following value of `n`.
 
 The algorithm ends when we find a number `n` such that the cases above fail for `p = 3` and for every `m = 1, ..., (n + 1)/3`.
+
+
+## Usage
+Run the script without options to get the result or use `-v` or `--verbose` options to show all failed attempts with there respective representation `p + 2*k^2`.
+```
+>> python goldbach.py
+>> python goldbach.py -v
+>> python goldbach.py --verbose
+```
