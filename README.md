@@ -56,7 +56,7 @@ The algorithm ends when we find a number `n` such that the cases above fail for 
 ## Usage
 Run the script without options to get the result or use `-v` or `--verbose` options to show all failed attempts with there respective representation `p + 2*k^2`.
 ```
->> python goldbach.py
->> python goldbach.py -v
->> python goldbach.py --verbose
+$ python goldbach.py
+$ python goldbach.py -v
+$ python goldbach.py --verbose
 ```
